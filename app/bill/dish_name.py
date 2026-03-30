@@ -1,11 +1,8 @@
 def food_menu():
-
     items = []
     total_bill = 0
 
     while True:
-
-     
         while True:
             food_category = input("Enter food category (Fast_food/Sweets/Breakfast/Lunch/Dinner): ").lower()
             if food_category not in ["fast_food", "sweets", "breakfast", "lunch", "dinner"]:
@@ -13,10 +10,8 @@ def food_menu():
             else:
                 break
 
-       
         food_name = input("Enter food name: ")
 
-       
         while True:
             food_price = input("Enter food price: ")
             if not food_price.isdigit():
@@ -24,7 +19,6 @@ def food_menu():
             else:
                 food_price = int(food_price)
                 break
-
 
         while True:
             quantity = input("Enter quantity: ")

@@ -7,12 +7,16 @@ class Log(UserSystem):
 
         name = input("Enter your name: ")
         password = input("Enter password: ")
-        role = input("please reenter your role:")
+        role = input("Please re-enter your role: ")
 
         for user in self.users_list:
-            if user["name"] == name and user["password"] == password and user["role"] == role:
+            if (
+                user["name"].lower() == name.lower()
+                and user["password"] == password
+                and user["role"].lower() == role.lower()
+            ):
                 print("Login successful")
-                print(f"Welcome {name}") 
+                print(f"Welcome {name}")
                 return
 
         print("Invalid username or password")

@@ -1,5 +1,4 @@
 import json
-
 class UserSystem:
 
     def __init__(self):
@@ -37,9 +36,10 @@ class UserSystem:
                 break
 
         for user in self.users_list:
-            if user["name"] == user_name:
+            if user["name"].lower() == user_name.lower():
                 print("User already exists")
                 return
+
 
         user_data = {
             "name": user_name,

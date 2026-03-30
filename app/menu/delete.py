@@ -1,5 +1,5 @@
 import json
-
+ 
 def delete_item():
 
     with open("menu.json", "r") as file:

@@ -7,7 +7,7 @@ def bill_menu():
         print("1. Generate Bill")
         print("2. Exit")
 
-        choice = int(input("Enter choice: "))
+        choice = input("Enter choice: ")
 
         if choice == 1:
             billing()

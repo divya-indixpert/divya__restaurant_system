@@ -1,25 +1,37 @@
 def customer_detail():
     while True:
-        name = input("Please enter your name: ")
-        if not name.replace(" ", "").isalpha():
-            print("Invalid name! Only alphabets allowed.")
-        else:
+        try:
+            name = input("Enter your name: ").strip()
+            if not name.replace(" ", "").isalpha():
+                raise ValueError("Name must contain only alphabets")
             break
+        except ValueError as e:
+            print(f"{e}")
 
 
     while True:
-        email = input("Please enter your email: ")
-        if "@" not in email or "." not in email:
-            print("Invalid email format, try again")
-        else:
+        try:
+            email = input("Enter your email: ").strip()
+            if "@" not in email or "." not in email:
+                raise ValueError("Invalid email format")
             break
+        except ValueError as e:
+            print(f" {e}")
 
 
     while True:
-        contact = input("Please enter your contact number: ")
-        if not contact.isdigit() or len(contact) != 10:
-            print("Invalid contact number! Enter 10 digits.")
-        else:
+        try:
+            contact = input("Enter your contact number: ").strip()
+            if not contact.isdigit():
+                raise ValueError("Only digits allowed")
+            if len(contact) != 10:
+                raise ValueError("Contact must be 10 digits")
             break
+        except ValueError as e:
+            print(f"{e}")
 
-    return name, email, contact
+    return {
+        "name": name,
+        "email": email,
+        "contact": contact
+    }
