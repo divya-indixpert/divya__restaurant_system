@@ -1,3 +1,4 @@
+import getpass
 from app.auth.signup import UserSystem
 
 class Log(UserSystem):
@@ -6,7 +7,13 @@ class Log(UserSystem):
         self.read_file()
 
         name = input("Enter your name: ")
-        password = input("Enter password: ")
+
+        if not name.isalpha():
+            print("Name should contain only alphabets")
+            return
+
+        password = getpass.getpass("Enter password: ")
+
         role = input("Please re-enter your role: ")
 
         for user in self.users_list:

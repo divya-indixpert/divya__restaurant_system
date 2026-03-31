@@ -1,4 +1,5 @@
 import json
+from getpass import getpass
 class UserSystem:
 
     def __init__(self):
@@ -9,17 +10,18 @@ class UserSystem:
 
         while True:
             user_name = input("Please enter your name: ")
-            if not user_name.replace(" ", "").isalpha():
+            if not user_name.isalpha():
                 print("Invalid name! Please enter only alphabets.")
             else:
                 break
 
         while True:
-            password = input("Please enter your password: ")
+            password = getpass("Please enter your password: ")  
             if len(password) < 8:
                 print("Password must be at least 8 characters long")
             else:
                 break
+
 
         while True:
             email = input("Please enter your email: ")
