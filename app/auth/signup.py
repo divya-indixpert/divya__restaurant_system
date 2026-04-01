@@ -9,7 +9,7 @@ class UserSystem:
     def signup_user(self):
         self.read_file()
 
-        print("\n\033[36m===== SIGNUP =====\033[0m")   # Cyan heading
+        print("\n\033[36m===== SIGNUP =====\033[0m")  
 
         while True:
             user_name = input("\033[34mEnter your name: \033[0m")
