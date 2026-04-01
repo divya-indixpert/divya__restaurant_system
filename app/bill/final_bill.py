@@ -6,7 +6,11 @@ from app.bill.payment_method import payment
 def billing():
 
     print("\n========== CUSTOMER DETAILS ==========")
-    name, email, contact = customer_detail()
+    customer = customer_detail()
+    name = customer["name"]
+    email = customer["email"]
+    contact = customer["contact"]
+    
 
     print("\n========== FOOD ORDER ==========")
     items, subtotal = food_menu()
@@ -24,10 +28,10 @@ def billing():
     print("            FINAL BILL")
     print("==========================================")
 
-    print(f"Customer Name : {name}")
-    print(f"Email         : {email}")
-    print(f"Contact       : {contact}")
-    print(f"Date & Time   : {date_time}")
+    print(f"Customer Name :", {name})
+    print(f"Email         :",{email})
+    print(f"Contact       :", {contact})
+    print(f"Date & Time   :", {date_time})
 
     print("------------------------------------------")
     print("Dish\t\tQty\tPrice\tTotal")
@@ -42,5 +46,5 @@ def billing():
     print(f"Payment Mode  : {pay_method}")
 
     print("==========================================")
-    print("      THANK YOU! VISIT AGAIN 😊")
+    print("      THANK YOU! VISIT AGAIN ")
     print("==========================================")

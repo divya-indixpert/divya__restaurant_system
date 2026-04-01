@@ -71,32 +71,45 @@ def food_menu():
 
     return menu_items
 
+from colorama import Fore, Style, init
+init(autoreset=True)
+
 def show_menu():
 
-    if not os.path.exists("menu.json"):
+    if not os.path.exists("app/dashboard/menu.json"):
         with open("menu.json", "w") as file:
             json.dump(food_menu(), file, indent=4)
 
-    with open("menu.json", "r") as file:
+    with open("app/dashboard/menu.json", "r") as file:
         menu = json.load(file)
 
-    print("\n" + "="*55)
-    print("              🍽️ RESTAURANT MENU 🍽️")
-    print("="*55)
+    print(Fore.CYAN + Style.BRIGHT + "\n" + "═"*60)
+    print(Fore.YELLOW + Style.BRIGHT + "         ✨ THE ROYAL PLATE MENU ✨".center(60))
+    print(Fore.CYAN + "═"*60)
 
     item_no = 1
 
     for category, items in menu.items():
 
-        print(f"\n{'-'*55}")
-        print(f"{category.center(55)}")
-        print(f"{'-'*55}")
+        print(Fore.MAGENTA + "\n" + "─"*60)
+        print(Fore.GREEN + Style.BRIGHT + f" {category.upper()} ".center(60, " "))
+        print(Fore.MAGENTA + "─"*60)
 
         for item in items:
 
             if "price" in item:
-                print(f"{item_no:2}. {item['dish']:<30} ₹ {item['price']}")
+                print(
+                    Fore.WHITE +
+                    f"{item_no:2}. {item['dish']:<30}" +
+                    Fore.YELLOW + f" ₹ {item['price']:>5}"
+                )
             else:
-                print(f"{item_no:2}. {item['dish']:<30} Half ₹{item['half']} | Full ₹{item['full']}")
+                print(
+                    Fore.WHITE +
+                    f"{item_no:2}. {item['dish']:<30}" +
+                    Fore.CYAN + f" Half ₹{item['half']} | Full ₹{item['full']}"
+                )
 
             item_no += 1
+
+    print(Fore.CYAN + "\n" + "═"*60)

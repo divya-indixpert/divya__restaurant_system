@@ -1,19 +1,24 @@
+from colorama import Fore, Style, init
 from app.bill.final_bill import billing
+
+init(autoreset=True)
 
 def bill_menu():
 
     while True:
-        print("\n===== BILL MENU =====")
-        print("1. Generate Bill")
-        print("2. Exit")
+        print(Fore.MAGENTA + Style.BRIGHT + "\n===== BILL MENU =====")
+        print(Fore.CYAN + "1. Generate Bill")
+        print(Fore.CYAN + "2. Exit")
 
-        choice = input("Enter choice: ")
+        choice = input(Fore.WHITE + "Enter choice: ")
 
-        if choice == 1:
+        if choice == "1":
+            print(Fore.GREEN + "\n Generating Bill...\n")
             billing()
 
-        elif choice == 2:
+        elif choice == "2":
+            print(Fore.YELLOW + " Exiting Bill Menu...")
             break
 
         else:
-            print("Invalid choice")
+            print(Fore.RED + " Invalid choice, try again")

@@ -10,6 +10,7 @@ def food_menu():
             else:
                 break
 
+       
         food_name = input("Enter food name: ")
 
         while True:
@@ -19,6 +20,7 @@ def food_menu():
             else:
                 food_price = int(food_price)
                 break
+
 
         while True:
             quantity = input("Enter quantity: ")

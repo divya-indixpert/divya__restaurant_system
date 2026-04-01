@@ -1,36 +1,34 @@
 from app.table_booking.booking import table_book
 from app.table_booking.cancel import cancel_booking
+from colorama import Fore, Style, init
+
+init(autoreset=True)
 
 def menu():
     try:
         while True:
-            print("\n===== TABLE BOOKING =====")
-            print("1. Book Table")
-            print("2. Cancel Booking")
-            print("3. Exit")
-            
-            
-            choice = input("Enter choice: ")
+            print(Fore.MAGENTA + Style.BRIGHT + "\n========== 🍽️ TABLE BOOKING ==========")
+            print(Fore.CYAN + "1️⃣  Book Table")
+            print(Fore.YELLOW + "2️⃣  Cancel Booking")
+            print(Fore.RED + "3️⃣  Exit")
+            print(Fore.MAGENTA + "======================================")
+
+            choice = input(Fore.BLUE + " Enter choice: ")
 
             if choice == "1":
+                print(Fore.GREEN + "\n Opening Table Booking...")
                 table_book()
 
             elif choice == "2":
+                print(Fore.YELLOW + "\n Opening Cancel Booking...")
                 cancel_booking()
 
             elif choice == "3":
-                exit
-                break
+                print(Fore.GREEN + Style.BRIGHT + "\n Exiting Table Booking Menu...")
+                break   # exit() ki zarurat nahi
 
             else:
-                print("Invalid choice")
-                    
+                print(Fore.RED + " Invalid choice, try again")
+
     except Exception as e:
-        print(e)
-            
-                
-
-
-                
-
-            
+        print(Fore.RED + f" Error: {e}")

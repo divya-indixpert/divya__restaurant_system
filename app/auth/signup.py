@@ -1,5 +1,6 @@
 import json
 from getpass import getpass
+
 class UserSystem:
 
     def __init__(self):
@@ -8,40 +9,40 @@ class UserSystem:
     def signup_user(self):
         self.read_file()
 
+        print("\n\033[36m===== SIGNUP =====\033[0m")   # Cyan heading
+
         while True:
-            user_name = input("Please enter your name: ")
+            user_name = input("\033[34mEnter your name: \033[0m")
             if not user_name.isalpha():
-                print("Invalid name! Please enter only alphabets.")
+                print("\033[31mInvalid name! Only alphabets allowed\033[0m")
             else:
                 break
 
         while True:
-            password = getpass("Please enter your password: ")  
+            password = getpass("\033[34mEnter your password: \033[0m")
             if len(password) < 8:
-                print("Password must be at least 8 characters long")
+                print("\033[31mPassword must be at least 8 characters\033[0m")
             else:
                 break
 
-
         while True:
-            email = input("Please enter your email: ")
+            email = input("\033[34mEnter your email: \033[0m")
             if "@" not in email or "." not in email:
-                print("Invalid email format, try again")
+                print("\033[31mInvalid email format\033[0m")
             else:
                 break
 
         while True:
-            role = input("Please select your role (Admin/Staff): ")
+            role = input("\033[34mEnter role (Admin/Staff): \033[0m")
             if role.lower() not in ["admin", "staff"]:
-                print("Invalid role! Enter Admin or Staff")
+                print("\033[31mInvalid role! Enter Admin or Staff\033[0m")
             else:
                 break
 
         for user in self.users_list:
             if user["name"].lower() == user_name.lower():
-                print("User already exists")
+                print("\033[31mUser already exists\033[0m")
                 return
-
 
         user_data = {
             "name": user_name,
@@ -51,18 +52,17 @@ class UserSystem:
         }
 
         self.users_list.append(user_data)
-
         self.write_file()
 
-        print("Account created successfully")
+        print("\033[32mAccount created successfully\033[0m")  
 
     def read_file(self):
         try:
-            with open("users.json", "r") as file:
+            with open("app/dashboard/users.json", "r") as file:
                 self.users_list = json.load(file)
         except:
             self.users_list = []
 
     def write_file(self):
-        with open("users.json", "w") as file:
+        with open("app/dashboard/users.json", "w") as file:
             json.dump(self.users_list, file, indent=4)

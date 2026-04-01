@@ -35,3 +35,5 @@ def customer_detail():
         "email": email,
         "contact": contact
     }
+    
+    

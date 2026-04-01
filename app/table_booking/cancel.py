@@ -8,37 +8,46 @@ def cancel_booking():
 
     tables = restaurant_tables()
 
-    
-    if os.path.exists(FILE):
-        with open(FILE, "r") as f:
-            bookings = json.load(f)
-    else:
-        bookings = []
-
-    booked_tables = [b["table_no"] for b in bookings]
-
-    print("\nTables:")
-    for t in tables:
-        if t["table_no"] in booked_tables:
-            print(f"Table {t['table_no']} - Booked")
+    try:
+      
+        if os.path.exists(FILE):
+            with open(FILE, "r") as f:
+                bookings = json.load(f)
         else:
-            print(f"Table {t['table_no']} - Available")
+            bookings = []
 
-    table_no = int(input("Enter table number: "))
-
-    if table_no in booked_tables:
-        print("Already booked ")
+    
+    except Exception as e:
+        print("Error:", e)
         return
 
-    name = input("Enter name: ")
+    if not bookings:
+        print("No bookings found to cancel")
+        return
 
-    bookings.append({
-        "table_no": table_no,
-        "name": name
-    })
+ 
+    print("\nBooked Tables:")
+    for b in bookings:
+        print(f"Table {b['table_no']} - {b['name']}")
 
-    with open(FILE, "w") as f:
-        json.dump(bookings, f, indent=4)
+    try:
+        table_no = int(input("Enter table number to cancel: "))
+    except ValueError:
+        print("Invalid input! Enter number only.")
+        return
 
-    print("Table booked successfully ")
-    
+  
+    for b in bookings:
+        if b["table_no"] == table_no:
+            bookings.remove(b)
+
+            try:
+                with open(FILE, "w") as f:
+                    json.dump(bookings, f, indent=4)
+                print(" Booking cancelled successfully")
+            except Exception as e:
+                print("Error saving file:", e)
+
+            return
+
+    print(" Booking not found")

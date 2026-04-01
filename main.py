@@ -3,39 +3,49 @@ from app.table_booking.menu_booking import menu
 from app.menu.menu_items import admin_menu
 from app.bill.menu import billing
 
+from colorama import Fore, Back, Style, init
+init(autoreset=True)
+
 def info():
     while True:
 
         try:
-            print("\n========= The Royal Plate =========")
-            print("1. User Management")
-            print("2. Table Booking")
-            print("3. Restaurant menu")
-            print("4. billing")
-            print("5. Exit")
-    
+            print(Back.WHITE + Fore.BLACK + Style.BRIGHT + "\n       THE ROYAL PLATE       ")
+            print(Fore.CYAN + "="*40)
 
-            choice = int(input("Enter your choice: "))
+            print(Fore.LIGHTGREEN_EX + "➤ 1. Guest Management")
+            print(Fore.LIGHTBLUE_EX + "➤ 2. Table Reservations")
+            print(Fore.LIGHTMAGENTA_EX + "➤ 3. Food Menu")
+            print(Fore.LIGHTYELLOW_EX + "➤ 4. Billing & Checkout")
+            print(Fore.LIGHTRED_EX + "➤ 5. Exit")
+
+            print(Fore.CYAN + "="*40)
+
+            choice = int(input(Fore.WHITE + Style.BRIGHT + "Enter your choice ➤ "))
 
             if choice == 1:
+                print(Fore.GREEN + "✔ Opening Guest Management...\n")
                 details()
-                  
+
             elif choice == 2:
+                print(Fore.GREEN + "✔ Opening Table Reservation...\n")
                 menu()
 
             elif choice == 3:
+                print(Fore.GREEN + "✔ Opening Food Menu...\n")
                 admin_menu()
-                
+
             elif choice == 4:
-               billing()
-                
+                print(Fore.GREEN + "✔ Opening Billing System...\n")
+                billing()
+
             elif choice == 5:
-                print("Program Closed")
+                print(Fore.RED + Style.BRIGHT + " Program Closed")
                 break
             else:
-                print("Invalid choice")
+                print(Fore.RED + "⚠ Invalid choice")
 
-        except:
-            print("Please enter numbers only")
-           
+        except ValueError:
+            print(Fore.RED + "⚠ Please enter numbers only")
+
 info()
