@@ -19,24 +19,24 @@ def details():
 
         print(Fore.CYAN + "-"*50)
 
-        try:
-            choice = int(input(Fore.WHITE + Style.BRIGHT + "Enter your choice ➤ "))
+        choice = input(Fore.WHITE + Style.BRIGHT + "Enter your choice ➤ ").strip()
 
-            if choice == 1:
-                print(Fore.GREEN + "\n Opening Signup...\n")
-                signup.signup_user()
+        if not choice.isdigit():
+            print(Fore.RED + " Enter only number only (1 to 3)!")
+            continue
 
-            elif choice == 2:
-                print(Fore.BLUE + "\n Opening Login...\n")
-                login.login_user()
+        if choice == "1":
+            print(Fore.GREEN + "\n Opening Signup...\n")
+            signup.signup_user()
 
-            elif choice == 3:
-                print(Fore.RED + Style.BRIGHT + "\n Program Closed")
-                print(Fore.CYAN + "═"*50)
-                break
+        elif choice == "2":
+            print(Fore.BLUE + "\n Opening Login...\n")
+            login.login_user()
 
-            else:
-                print(Fore.RED + " Invalid choice")
+        elif choice == "3":
+            print(Fore.RED + Style.BRIGHT + "\n Program Closed")
+            print(Fore.CYAN + "═"*50)
+            break
 
-        except ValueError:
-            print(Fore.RED + " Please enter numbers only")
+        else:
+            print(Fore.RED + " Invalid choice")

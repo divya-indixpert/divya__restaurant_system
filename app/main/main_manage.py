@@ -22,6 +22,11 @@ def info():
             print(Fore.CYAN + "="*40)
 
             choice = int(input(Fore.WHITE + Style.BRIGHT + "Enter your choice ➤ "))
+            
+            if not choice.isdigit():
+                print(Fore.RED + " Enter only number only (1 to 3)!")
+                continue
+
 
             if choice == 1:
                 print(Fore.GREEN + "✔ Opening Guest Management...\n")

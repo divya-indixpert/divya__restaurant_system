@@ -13,7 +13,11 @@ def menu():
             print(Fore.RED + "3️⃣  Exit")
             print(Fore.MAGENTA + "======================================")
 
-            choice = input(Fore.BLUE + " Enter choice: ")
+            choice = input(Fore.BLUE + " Enter choice: ").strip()
+
+            if not choice.isdigit():
+                print(Fore.RED + " Enter only number only (1 to 3)!")
+                continue
 
             if choice == "1":
                 print(Fore.GREEN + "\n Opening Table Booking...")
@@ -25,7 +29,7 @@ def menu():
 
             elif choice == "3":
                 print(Fore.GREEN + Style.BRIGHT + "\n Exiting Table Booking Menu...")
-                break   # exit() ki zarurat nahi
+                break  
 
             else:
                 print(Fore.RED + " Invalid choice, try again")

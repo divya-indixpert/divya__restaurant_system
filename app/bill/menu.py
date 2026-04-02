@@ -11,6 +11,10 @@ def bill_menu():
         print(Fore.CYAN + "2. Exit")
 
         choice = input(Fore.WHITE + "Enter choice: ")
+        if not choice.isdigit():
+            print(Fore.RED + " Enter only number only (1 to 2)!")
+            continue
+
 
         if choice == "1":
             print(Fore.GREEN + "\n Generating Bill...\n")

@@ -40,8 +40,12 @@ def table_book():
     if table_no in booked_tables:
         print("Table already booked!")
         return
-
+        
     name = input("Enter name: ")
+    if not name.isalpha():
+        print("only alphabets (A-Z) allowed")
+        return
+    
 
     bookings.append({
         "table_no": table_no,
