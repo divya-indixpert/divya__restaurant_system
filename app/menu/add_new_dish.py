@@ -10,8 +10,8 @@ def add_item():
     with open("app/dashboard/menu.json", "r") as file:
         menu = json.load(file)
 
-    category = input("Enter category: ")
-    name = input("Enter dish name: ")
+    category = input("Enter category: ").title()
+    name = input("Enter dish name: ").lower().title()
 
     try:
         price = int(input("Enter price: "))
