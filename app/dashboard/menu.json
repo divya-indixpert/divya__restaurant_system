@@ -197,6 +197,10 @@
         {
             "dish": "Gravy momo",
             "price": 70
+        },
+        {
+            "dish": "Cheesy Roll",
+            "price": 120
         }
     ],
     "Sweets": [
@@ -230,7 +234,7 @@
         },
         {
             "dish": "Barfi",
-            "price": 90
+            "price": 40
         },
         {
             "dish": "Kaju Katli",
