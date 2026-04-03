@@ -4,5 +4,107 @@
         "password": "1234567890",
         "email": "anu12@gmail.com",
         "role": "admin"
+    },
+    {
+        "name": "manisha",
+        "password": "1234567890",
+        "email": "manisha12@gmail.com",
+        "role": "admin"
+    },
+    {
+        "name": "mannnu",
+        "password": "12344567",
+        "email": "jhngfyuhf@gmail.com",
+        "role": "admin"
+    },
+    {
+        "name": "ankita",
+        "password": "123456789",
+        "email": "ankita12@gmail.com",
+        "role": "admin"
+    },
+    {
+        "name": "tara",
+        "password": "1234567890",
+        "email": "tara12@gmail.com",
+        "role": "admin"
+    },
+    {
+        "name": "mukesh",
+        "password": "1234567890",
+        "email": "mukesh12@gmail.com",
+        "role": "admin"
+    },
+    {
+        "name": "varsha",
+        "password": "1234567890",
+        "email": "varsha12@gmail.com",
+        "role": "admin"
+    },
+    {
+        "name": "naman",
+        "password": "shahi678",
+        "email": "gfdtfgr@@.com",
+        "role": "admin"
+    },
+    {
+        "name": "riya",
+        "password": "1234567890",
+        "email": "riya@@gmail.com",
+        "role": "admin"
+    },
+    {
+        "name": "rishu",
+        "password": "787878789",
+        "email": "rishu12@gmail.com",
+        "role": "staff"
+    },
+    {
+        "name": "sonu",
+        "password": "123456789",
+        "email": "sonu21@gmail.com",
+        "role": "admin"
+    },
+    {
+        "name": "anamika",
+        "password": "1234567890",
+        "email": "anamika23@gmail.com",
+        "role": "admin"
+    },
+    {
+        "name": "diksha",
+        "password": "7500997330",
+        "email": "dd12@gmail.com",
+        "role": "staff"
+    },
+    {
+        "name": "mann",
+        "password": "7500997330",
+        "email": "manu12@gmail.com",
+        "role": "admin"
+    },
+    {
+        "name": "mohit",
+        "password": "123456789",
+        "email": "mm12@gmail.com",
+        "role": "staff"
+    },
+    {
+        "name": "monu",
+        "password": "123456789",
+        "email": "monu67@gmail.com",
+        "role": "staff"
+    },
+    {
+        "name": "kanchan",
+        "password": "1234567890",
+        "email": "kanchan12@gmail.com",
+        "role": "staff"
+    },
+    {
+        "name": "anku",
+        "password": "7500997330",
+        "email": "anku12@gmail.com",
+        "role": "staff"
     }
 ]

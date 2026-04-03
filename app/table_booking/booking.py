@@ -1,5 +1,6 @@
 import json
 import os
+from datetime import datetime
 from app.table_booking.table import restaurant_tables
 
 FILE = "app/dashboard/booking.json"
@@ -7,7 +8,6 @@ FILE = "app/dashboard/booking.json"
 def table_book():
     tables = restaurant_tables()
 
-    
     try:
         if os.path.exists(FILE):
             with open(FILE, "r") as f:
@@ -17,7 +17,7 @@ def table_book():
     except Exception as e:
         print("File error:", e)
         bookings = []
-    
+
     booked_tables = [b["table_no"] for b in bookings]
 
     print("\nTables:")
@@ -33,26 +33,35 @@ def table_book():
         print("Invalid input! Please enter a number.")
         return
 
-    if table_no < 1 or table_no > 10:
-        print("Invalid table number! (1-10 allowed)")
+    if table_no < 1 or table_no > 30:
+        print("Invalid table number! (1-30 allowed)")
         return
 
     if table_no in booked_tables:
         print("Table already booked!")
         return
-        
+
     name = input("Enter name: ")
     if not name.isalpha():
         print("only alphabets (A-Z) allowed")
         return
+
     
+    date = datetime.now().strftime("%Y-%m-%d")
+
+
+    start_time = input("Enter start time (HH:MM): ")
+
+    end_time = input("Enter end time (HH:MM): ")
 
     bookings.append({
         "table_no": table_no,
-        "name": name
+        "name": name,
+        "date": date,
+        "start_time": start_time,
+        "end_time": end_time
     })
 
-  
     try:
         with open(FILE, "w") as f:
             json.dump(bookings, f, indent=4)

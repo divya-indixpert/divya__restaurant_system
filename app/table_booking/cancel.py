@@ -9,14 +9,12 @@ def cancel_booking():
     tables = restaurant_tables()
 
     try:
-      
         if os.path.exists(FILE):
             with open(FILE, "r") as f:
                 bookings = json.load(f)
         else:
             bookings = []
 
-    
     except Exception as e:
         print("Error:", e)
         return
@@ -25,10 +23,10 @@ def cancel_booking():
         print("No bookings found to cancel")
         return
 
- 
+    
     print("\nBooked Tables:")
     for b in bookings:
-        print(f"Table {b['table_no']} - {b['name']}")
+        print(f"Table {b['table_no']} - {b['name']} | {b.get('date')} | {b.get('start_time')} to {b.get('end_time')}")
 
     try:
         table_no = int(input("Enter table number to cancel: "))
@@ -36,7 +34,6 @@ def cancel_booking():
         print("Invalid input! Enter number only.")
         return
 
-  
     for b in bookings:
         if b["table_no"] == table_no:
             bookings.remove(b)

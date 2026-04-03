@@ -3,11 +3,11 @@ import os
 
 def add_item():
 
-    if not os.path.exists("menu.json"):
+    if not os.path.exists("app/dashboard/menu.json"):
         print("Menu file not found!")
         return
 
-    with open("menu.json", "r") as file:
+    with open("app/dashboard/menu.json", "r") as file:
         menu = json.load(file)
 
     category = input("Enter category: ")
@@ -27,7 +27,7 @@ def add_item():
     if category in menu:
         menu[category].append(new_dish)
 
-        with open("menu.json", "w") as file:
+        with open("app/dashboard/menu.json", "w") as file:
             json.dump(menu, file, indent=4)
 
         print("Dish added successfully")

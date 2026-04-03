@@ -1,31 +1,62 @@
 import json
+import os
+
+FILE = "app/dashboard/menu.json"
+
 def update_item():
+   
+    if not os.path.exists(FILE):
+        print("❌ Menu file not found!")
+        return
 
-    with open("menu.json", "r") as file:
-        menu = json.load(file)
+    try:
+        with open(FILE, "r") as file:
+            menu = json.load(file)
+    except json.JSONDecodeError:
+        print(" File is empty or corrupted!")
+        return
 
-    name = input("Enter dish name to update price: ")
+   
+    name = input("Enter dish name to update price: ").strip()
+    if not name:
+        print(" Dish can't be empty!")
+        return
 
+    found = False
+
+    
     for category, items in menu.items():
-
         for item in items:
+            if item.get("dish", "").lower() == name.lower():
 
-            if item["dish"].lower() == name.lower():
+               
+                price_input = input("Enter new price: ").strip()
+                
+                if not price_input.isdigit():
+                    print(" Price must be a number!")
+                    return
 
-                if "price" in item:
-                    new_price = int(input("Enter new price: "))
-                    item["price"] = new_price
+                new_price = int(price_input)
 
-                else:
-                    half = int(input("Enter new half price: "))
-                    full = int(input("Enter new full price: "))
-                    item["half"] = half
-                    item["full"] = full
+                if new_price <= 0:
+                    print(" Price must be greater than 0!")
+                    return
 
-                with open("menu.json", "w") as file:
-                    json.dump(menu, file, indent=4)
+                item["price"] = new_price
+                found = True
+                break
 
-                print("Price updated successfully ")
-                return
+        if found:
+            break
 
-    print("Dish not found ")
+    if not found:
+        print(" Dish not found!")
+        return
+
+   
+    try:
+        with open(FILE, "w") as file:
+            json.dump(menu, file, indent=4)
+        print(" Price updated successfully!")
+    except Exception as e:
+        print(" Error saving file:", e)

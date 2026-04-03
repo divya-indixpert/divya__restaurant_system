@@ -1,8 +1,10 @@
 import json
- 
+
 def delete_item():
 
-    with open("menu.json", "r") as file:
+    FILE = "app/dashboard/menu.json"
+
+    with open(FILE, "r") as file:
         menu = json.load(file)
 
     name = input("Enter dish name to delete: ")
@@ -11,11 +13,10 @@ def delete_item():
 
         for item in items:
 
-            if item["dish"] == name:
-
+            if item["dish"].lower() == name.lower(): 
                 items.remove(item)
 
-                with open("menu.json", "w") as file:
+                with open(FILE, "w") as file:         
                     json.dump(menu, file, indent=4)
 
                 print("Dish deleted successfully ")

@@ -1,0 +1,130 @@
+[
+    {
+        "items": [
+            {
+                "category": "lunch",
+                "name": "Dal Chawal",
+                "price": 100,
+                "quantity": 2,
+                "plate": "full",
+                "total": 200
+            },
+            {
+                "category": "fast_food",
+                "name": "momo",
+                "price": 100,
+                "quantity": 2,
+                "plate": "full",
+                "total": 200
+            },
+            {
+                "category": "sweets",
+                "name": "Ice Cream",
+                "price": 90,
+                "quantity": 90,
+                "plate": "half",
+                "total": 8100
+            },
+            {
+                "category": "fast_food",
+                "name": "momo",
+                "price": 100,
+                "quantity": 2,
+                "plate": "full",
+                "total": 200
+            },
+            {
+                "category": "fast_food",
+                "name": "momo",
+                "price": 100,
+                "quantity": 2,
+                "plate": "full",
+                "total": 200
+            }
+        ]
+    },
+    {
+        "items": [
+            {
+                "category": "fast_food",
+                "name": "momo",
+                "price": 100,
+                "quantity": 2,
+                "plate": "full",
+                "total": 200
+            },
+            {
+                "category": "sweets",
+                "name": "Kheer",
+                "price": 90,
+                "quantity": 3,
+                "plate": "full",
+                "total": 270
+            },
+            {
+                "category": "fast_food",
+                "name": "momo",
+                "price": 100,
+                "quantity": 2,
+                "plate": "full",
+                "total": 200
+            },
+            {
+                "category": "fast_food",
+                "name": "momo",
+                "price": 2,
+                "quantity": 2,
+                "plate": "full",
+                "total": 4
+            }
+        ]
+    },
+    {
+        "items": [
+            {
+                "category": "fast_food",
+                "name": "gravy momo",
+                "price": 70,
+                "quantity": 2,
+                "plate": "full",
+                "total": 140
+            },
+            {
+                "category": "sweets",
+                "name": "Kheer",
+                "price": 100,
+                "quantity": 5,
+                "plate": "full",
+                "total": 500
+            },
+            {
+                "category": "dinner",
+                "name": "Egg Curry",
+                "price": 100,
+                "quantity": 7,
+                "plate": "full",
+                "total": 700
+            },
+            {
+                "category": "breakfast",
+                "name": "Poha",
+                "price": 60,
+                "quantity": 2,
+                "plate": "full",
+                "total": 120
+            }
+        ]
+    },
+    {
+        "items": [
+            {
+                "category": "sweets",
+                "name": "kheer",
+                "price": 100,
+                "quantity": 2,
+                "plate": "full",
+                "total": 200
+            }
+        ]
+    }
+]

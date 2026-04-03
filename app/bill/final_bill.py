@@ -1,7 +1,31 @@
 import datetime
+import json
+import os
+
 from app.bill.customer import customer_detail
 from app.bill.dish_name import food_menu
 from app.bill.payment_method import payment
+
+FILE = "app/dashboard/bill.json"
+
+# ✅ Save bill function
+def save_bill(items):
+    if os.path.exists(FILE):
+        with open(FILE, "r") as f:
+            try:
+                data = json.load(f)
+            except:
+                data = []
+    else:
+        data = []
+
+    data.append({
+        "items": items
+    })
+
+    with open(FILE, "w") as f:
+        json.dump(data, f, indent=4)
+
 
 def billing():
 
@@ -28,10 +52,10 @@ def billing():
     print("            FINAL BILL")
     print("==========================================")
 
-    print(f"Customer Name :", {name})
-    print(f"Email         :",{email})
-    print(f"Contact       :", {contact})
-    print(f"Date & Time   :", {date_time})
+    print(f"Customer Name : {name}")
+    print(f"Email         : {email}")
+    print(f"Contact       : {contact}")
+    print(f"Date & Time   : {date_time}")
 
     print("------------------------------------------")
     print("Dish\t\tQty\tPrice\tTotal")
@@ -48,3 +72,5 @@ def billing():
     print("==========================================")
     print("      THANK YOU! VISIT AGAIN ")
     print("==========================================")
+
+    save_bill(items)

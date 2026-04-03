@@ -91,6 +91,10 @@
             "dish": "Palak Paneer",
             "half": 140,
             "full": 230
+        },
+        {
+            "dish": "Dal Chawal",
+            "price": 80
         }
     ],
     "Dinner": [
@@ -183,16 +187,16 @@
             "price": 150
         },
         {
-            "dish": "momo",
-            "price": 40
-        },
-        {
-            "dish": "Momos",
-            "price": 100
-        },
-        {
             "dish": "Momo",
             "price": 100
+        },
+        {
+            "dish": "egg roll",
+            "price": 100
+        },
+        {
+            "dish": "Gravy momo",
+            "price": 70
         }
     ],
     "Sweets": [
@@ -203,10 +207,6 @@
         {
             "dish": "Rasgulla",
             "price": 60
-        },
-        {
-            "dish": "Kheer",
-            "price": 90
         },
         {
             "dish": "Ice Cream",
@@ -230,11 +230,11 @@
         },
         {
             "dish": "Barfi",
-            "price": 70
+            "price": 90
         },
         {
-            "dish": "Bhundu Laddu",
-            "price": 90
+            "dish": "Kaju Katli",
+            "price": 150
         }
     ]
 }

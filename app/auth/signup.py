@@ -1,5 +1,9 @@
 import json
+import re
 from getpass import getpass
+from app.utils.logger import get_logger  
+
+logger = get_logger()   
 
 class UserSystem:
 
@@ -9,41 +13,50 @@ class UserSystem:
     def signup_user(self):
         self.read_file()
 
-        print("\n\033[36m===== SIGNUP =====\033[0m")  
+        print("\n===== SIGNUP =====")
 
+      
         while True:
-            user_name = input("\033[34mEnter your name: \033[0m")
+            user_name = input("Enter your name: ")
             if not user_name.isalpha():
-                print("\033[31mInvalid name! Only alphabets allowed\033[0m")
+                print("Invalid name! Only alphabets allowed")
             else:
                 break
 
+    
         while True:
-            password = getpass("\033[34mEnter your password: \033[0m")
+            password = getpass("Enter your password: ")
             if len(password) < 8:
-                print("\033[31mPassword must be at least 8 characters\033[0m")
+                print("Password must be at least 8 characters")
             else:
                 break
 
         while True:
-            email = input("\033[34mEnter your email: \033[0m")
-            if "@" not in email or "." not in email:
-                print("\033[31mInvalid email format\033[0m")
+            email = input("Enter your email: ").strip()
+
+            email_pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+
+            if not re.match(email_pattern, email):
+                print("Invalid email! Example: abc123@gmail.com")
+                logger.warning(f"Invalid email entered: {email}")
             else:
                 break
 
+       
         while True:
-            role = input("\033[34mEnter role (Admin/Staff): \033[0m")
+            role = input("Enter role (Admin/Staff): ")
             if role.lower() not in ["admin", "staff"]:
-                print("\033[31mInvalid role! Enter Admin or Staff\033[0m")
+                print("Invalid role! Enter Admin or Staff")
             else:
                 break
 
         for user in self.users_list:
             if user["name"].lower() == user_name.lower():
-                print("\033[31mUser already exists\033[0m")
+                print("User already exists")
+                logger.warning(f"Signup FAILED - User already exists: {user_name}")
                 return
 
+       
         user_data = {
             "name": user_name,
             "password": password,
@@ -54,7 +67,9 @@ class UserSystem:
         self.users_list.append(user_data)
         self.write_file()
 
-        print("\033[32mAccount created successfully\033[0m")  
+        print("Account created successfully")
+
+        logger.info(f"Signup SUCCESS - User: {user_name}, Role: {role}, Email: {email}")
 
     def read_file(self):
         try:

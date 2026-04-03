@@ -4,8 +4,8 @@ def food_menu():
 
     while True:
         while True:
-            food_category = input("Enter food category (Fast_food/Sweets/Breakfast/Lunch/Dinner): ").lower()
-            if food_category not in ["fast_food", "sweets", "breakfast", "lunch", "dinner"]:
+            food_category = input("Enter food category (Fastfood/Sweets/Breakfast/Lunch/Dinner): ").lower()
+            if food_category not in ["Fast food", "Sweets", "Breakfast", "Lunch", "Dinner"]:
                 print("Invalid category! Try again.")
             else:
                 break

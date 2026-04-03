@@ -24,31 +24,32 @@ def admin_menu():
 
         print(Fore.MAGENTA + "===================================")
 
-        try:
-            choice = int(input(Fore.BLUE + " Enter your choice: "))
+        choice = input(Fore.BLUE + " Enter your choice: ").strip()
 
-            if choice == 1:
-                print(Fore.GREEN + "\n Showing Menu...")
-                show_menu()
-
-            elif choice == 2:
-                print(Fore.YELLOW + "\n Add New Dish")
-                add_item()
-
-            elif choice == 3:
-                print(Fore.YELLOW + "\n Update Dish")
-                update_item()
-
-            elif choice == 4:
-                print(Fore.RED + "\n Delete Dish")
-                delete_item()
-
-            elif choice == 5:
-                print(Fore.GREEN + Style.BRIGHT + "\n🙏 Thank you for using the system!")
-                break
-
-            else:
-                print(Fore.RED + " Invalid choice, try again")
-
-        except:
+      
+        if not choice.isdigit():
             print(Fore.RED + " Please enter numbers only")
+            continue
+
+        if choice == "1":
+            print(Fore.GREEN + "\n Showing Menu...")
+            show_menu()
+
+        elif choice == "2":
+            print(Fore.YELLOW + "\n Add New Dish")
+            add_item()
+
+        elif choice == "3":
+            print(Fore.YELLOW + "\n Update Dish")
+            update_item()
+
+        elif choice == "4":
+            print(Fore.RED + "\n Delete Dish")
+            delete_item()
+
+        elif choice == "5":
+            print(Fore.GREEN + Style.BRIGHT + "\n Thank you for using the system!")
+            break
+
+        else:
+            print(Fore.RED + " Invalid choice, try again")

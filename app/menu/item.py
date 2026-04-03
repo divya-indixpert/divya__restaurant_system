@@ -1,5 +1,7 @@
 import json
 import os
+from colorama import Fore, Style, init
+init(autoreset=True)
 
 def food_menu():
     menu_items = {
@@ -42,7 +44,7 @@ def food_menu():
             {"dish": "Mutton Curry", "half": 210, "full": 310}
         ],
 
-        "Fast Food": [
+        "Fast food": [
             {"dish": "Burger", "price": 120},
             {"dish": "Cheese Burger", "price": 150},
             {"dish": "French Fries", "price": 100},
@@ -71,13 +73,11 @@ def food_menu():
 
     return menu_items
 
-from colorama import Fore, Style, init
-init(autoreset=True)
 
 def show_menu():
 
     if not os.path.exists("app/dashboard/menu.json"):
-        with open("menu.json", "w") as file:
+        with open("app/dashboard/menu.json", "w") as file:
             json.dump(food_menu(), file, indent=4)
 
     with open("app/dashboard/menu.json", "r") as file:
