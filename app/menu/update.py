@@ -6,7 +6,7 @@ FILE = "app/dashboard/menu.json"
 def update_item():
    
     if not os.path.exists(FILE):
-        print("❌ Menu file not found!")
+        print(" Menu file not found!")
         return
 
     try:
@@ -17,7 +17,7 @@ def update_item():
         return
 
    
-    name = input("Enter dish name to update price: ").strip()
+    name = input("Enter dish name to update price: ").title()
     if not name:
         print(" Dish can't be empty!")
         return
